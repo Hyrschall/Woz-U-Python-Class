@@ -1,11 +1,31 @@
 
 
 #day = 4
-day = int(input("What day were you born? "))
+while True:
+    try:
+        day = int(input("What day were you born? "))
+        break
+    except ValueError:
+        print("Oops! That was not a valid number. Try again...")
+
 #month = "July"
-month = input("What month were you born? ")
+
+while True:
+    try:
+        month = input("What month were you born? ")
+        if month.isalpha():
+            break
+    except:
+        
 #year = 1776
-year = int(input("What year were you born? "))
+while True:
+    try:
+        year = int(input("What year were you born? "))
+        break
+    except ValueError:
+        print("Oops! That was not a valid number. Try again...")
+
+
 
 my_birthday = str.format("{} {}, {}", month, day, year)
 
@@ -21,15 +41,18 @@ final = str.upper(first + " " + second + " " + third + " " + fourth)
 print(final)
 
 #age = 15
-age = int(input("How old are you? "))
+while True:
+    try:
+        age = int(input("How old are you? "))
+        break
+    except ValueError:
+        print("Oops! That was not a valid number. Try again...")
 
 if age <= 10:
     print("Not Permitted")
-elif age >= 15:
+elif age >= 11 and age <= 15:
     print("Permitted with parent")
-elif age >= 18:
+elif age >= 16 and age <= 18:
     print("Permitted with anyone over 18")
 elif age > 18:
     print("Permitted to attend alone")
-else:
-    print("You're up past your bed time")
