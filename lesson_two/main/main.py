@@ -16,6 +16,7 @@ while True:
         if month.isalpha():
             break
     except:
+        print("Please use text only")
         
 #year = 1776
 while True:
