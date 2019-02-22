@@ -9,11 +9,10 @@ while True:
 # month = "July"
 
 while True:
-    try:
-        month = input("What month were you born? ")
-        if month.isalpha():
-            break
-    except:
+    month = input("What month were you born? ")
+    if month.isalpha():
+        break
+    else:
         print("Please use text only")
 
 # year = 1776
