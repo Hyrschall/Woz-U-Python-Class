@@ -10,7 +10,7 @@ pets = [fido, charlie]
 # for key in pets:
 #    print(key['Name'] + ':' + key['Type'])
 
-print(list(pets, '\n'))
+print(list(pets))
 
 # print(pets)
 
