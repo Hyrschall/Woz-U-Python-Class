@@ -23,3 +23,11 @@ countries = [england, france, belgium]
 for county in countries:
     for info in county:
         print('{} : {}'.format(info, county[info]))
+
+# Part 3
+
+pizza_order = dict(Name='John', Size='large', Crust='stuffed crust', Toppings='pepperoni, extra cheese and sausage')
+
+print("Thank you for your order,", pizza_order.get('Name'))
+print("You have ordered a", pizza_order.get('Size'), pizza_order.get('Crust'), "pizza with the following toppings:")
+print(pizza_order.get('Toppings'))
