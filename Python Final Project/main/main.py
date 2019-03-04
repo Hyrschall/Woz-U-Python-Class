@@ -1,8 +1,9 @@
 tasks = [
-    {'name' : 'Write email to Jan', 'completed' : True},
-    {'name' : 'Sweep front porch', 'completed' : True},
-    {'name' : 'Call mom', 'completed' : False}
+    {'name': 'Write email to Jan', 'completed': True},
+    {'name': 'Sweep front porch', 'completed': True},
+    {'name': 'Call mom', 'completed': False}
 ]
+
 
 def list_tasks():
     for index, task in enumerate(tasks):
@@ -10,27 +11,55 @@ def list_tasks():
 
 
 def add_task():
-    task_text = input('Please add a task: ')
+    task_text: str = input('Please add a task: ')
+    new_task = {'name': task_text, 'completed': False}
+    tasks.append(new_task.copy())
+    print(new_task['name'], 'has been added.')
+    list_tasks()
 
     # Using the above task_text variable, create a dictionary named new_task and set completed to False
 
     # Then, add new_task to the tasks list
 
 
+def remove_task():
+    list_tasks()
+    remove_text = int(input('Enter the number of the task you would like to remove: '))
+    for index, task in enumerate(tasks):
+        if remove_text == index:
+            del tasks[index]
+            print('Task', remove_text, 'has been removed')
+            list_tasks()
+
+
 # You will need a function to handle removing a task.
-    # When this function is run, list out the tasks. Hint! There is already a function that handles this
+# When this function is run, list out the tasks. Hint! There is already a function that handles this
 
-    # Here, create a variable that uses input. The user should be able to input the index number of the task to be removed. Hint! You will need to wrap the input() function within the int() function so the user's input is read as a number.
+# Here, create a variable that uses input. The user should be able to input the index number of the task to be
+# removed. Hint! You will need to wrap the input() function within the int() function so the user's input is read as
+# a number.
 
-    # Here, delete the task in the tasks list based on the above variable
+# Here, delete the task in the tasks list based on the above variable
+
+
+def complete_task():
+    list_tasks()
+    complete_text = int(input('Enter the number of task that you completed: '))
+    for index, task in enumerate(tasks):
+        if complete_text == index:
+            task['completed'] = True
+            list_tasks()
 
 
 # You will need a function to handle marking a task complete.
-    # When this function is run, list out the tasks. Hint! There is a function that already does this for you.
+# When this function is run, list out the tasks. Hint! There is a function that already does this for you.
 
-    # Here, create a variable that uses input. The user should be able to input the index number of the task to be marked complete. Hint! You will need to wrap the input() function within the int() function so the user's input is read as a number.
+# Here, create a variable that uses input. The user should be able to input the index number of the task to be marked
+# complete. Hint! You will need to wrap the input() function within the int() function so the user's input is read as
+# a number.
 
-    # Mark the task complete in the tasks list based on the variable you created above. Hint! you will need to use two sets of square brackets to find the index and set the appropriate key to True 
+# Mark the task complete in the tasks list based on the variable you created above. Hint! you will need to use two
+# sets of square brackets to find the index and set the appropriate key to True
 
 menu_text = """
 ====================
@@ -48,6 +77,12 @@ while program_is_running:
     decision = input(menu_text)
     if decision == '1':
         list_tasks()
+    elif decision == '2':
+        add_task()
+    elif decision == '3':
+        remove_task()
+    elif decision == '4':
+        complete_task()
 
     # Add elif statements for inputs 2, 3, and 4
 
@@ -55,5 +90,3 @@ while program_is_running:
         program_is_running = False
     else:
         print('please choose a valid option')
-
-
